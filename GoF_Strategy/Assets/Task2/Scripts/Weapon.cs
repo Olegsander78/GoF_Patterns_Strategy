@@ -1,21 +1,17 @@
 public abstract class Weapon
 {
-    protected int _ammo;
-    public void SetAmmo(int ammo)
+    protected int Ammo;
+    protected int AmmoPerShoot;
+
+    protected Weapon()
     {
-        _ammo = ammo;
     }
-
-    //Template method
-    public void UseWeapon()
+    protected Weapon(int ammo, int ammoPerShoot)
     {
-        Shoot();
-
-        if (_ammo <= 0)
-            Reload();
+        Ammo = ammo;
+        AmmoPerShoot = ammoPerShoot;
     }
 
     public abstract void Shoot();
     public abstract void Reload();
-
 }

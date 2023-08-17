@@ -399,6 +399,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 801155914}
+  - component: {fileID: 801155916}
   - component: {fileID: 801155915}
   m_Layer: 0
   m_Name: WeaponController
@@ -431,9 +432,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 801155913}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 775289ec8f9b0d84bbbe4b67597254a9, type: 3}
+  m_Script: {fileID: 11500000, guid: 28a778d9a6765ce4ab96cc7be65e9c8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &801155916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 801155913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d25bbe156943184cac95653e5e5099b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _shooter: {fileID: 801155915}
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0

@@ -31,6 +31,7 @@ public class Trader : MonoBehaviour
         if (other.TryGetComponent(out PlayerCharacter playerCharacter))
             Debug.Log($"<color=green>See you later!</color>");
     }
+
     private void DoTrade()
     {
         _currentWeekday = (Weekday)Random.Range(0, 7);
