@@ -1,20 +1,22 @@
 using System;
-using TMPro;
 using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
     public Action OnEndedGame;
     public Action<string> OnSelectedCondition;
+    public event Action OnButtonConditionClicked;
     public ColorType ColorToPop { get => _colorToPop;}
 
     [SerializeField] private BallSpawner _ballSpawner;
     [SerializeField] private ColorType _colorToPop;
 
-    private bool _popAllButtonClicked = false;
-    private bool _popOneColorButtonClicked = false;
+    private IWinCondition _winConditionStrategy;
 
-    private IWinCondition _winConditionStrategy;  
+    private void Start()
+    {
+        OnButtonConditionClicked += _ballSpawner.SpawnBalls;
+    }
 
     public void SelectPopAllStrategy()
     {
@@ -22,8 +24,9 @@ public class GameController : MonoBehaviour
 
         OnSelectedCondition?.Invoke($"Pop all the balloons to win!");
 
-        _popAllButtonClicked = true;
-        CheckButtonState();
+        OnButtonConditionClicked?.Invoke();
+
+        SuscribeBallsOnPuped();
     }
 
     public void SelectPopOneColorStrategy()
@@ -32,28 +35,27 @@ public class GameController : MonoBehaviour
 
         OnSelectedCondition?.Invoke($"To win, pop all the balls of color - {_colorToPop}");
 
-        _popOneColorButtonClicked = true;
-        CheckButtonState();
+        OnButtonConditionClicked?.Invoke();
+
+        SuscribeBallsOnPuped();
     }
 
     public void CheckWinCondition()
     {
         if (_winConditionStrategy.HasWon(_ballSpawner.Balls))
             OnEndedGame?.Invoke();
-    }    
+    }
 
-    private void CheckButtonState()
+    private void SuscribeBallsOnPuped()
     {
-        if (_popAllButtonClicked || _popOneColorButtonClicked)
+        if (_ballSpawner.Balls != null)
         {
-            _ballSpawner.SpawnBalls();
-
             foreach (var ball in _ballSpawner.Balls)
             {
                 ball.OnPuped += CheckWinCondition;
             }
         }
-    }    
+    }
 
     private void OnDisable()
     {
@@ -61,5 +63,7 @@ public class GameController : MonoBehaviour
         {
             ball.OnPuped -= CheckWinCondition;
         }
+
+        OnButtonConditionClicked -= _ballSpawner.SpawnBalls;
     }
 }
