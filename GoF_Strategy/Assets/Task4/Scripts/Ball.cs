@@ -1,20 +1,18 @@
+using System;
 using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
-    public enum ColorType { Red, White, Green };
-
-    public ColorType ColorBall { get; private set; }
-
     [field:SerializeField] public bool IsPopped { get; private set; }
 
+    public Action OnPuped;
+    public ColorType ColorBall { get; private set; }
+
     private Renderer _renderer;
-    [SerializeField] private GameController _gameController;
 
     private void Awake()
     {
         _renderer = GetComponent<Renderer>();
-        _gameController = FindObjectOfType<GameController>();
     }
 
     public void SetColor(ColorType color)
@@ -41,7 +39,8 @@ public class Ball : MonoBehaviour
         {
             IsPopped = true;
             this.gameObject.SetActive(false);
-            _gameController.CheckWinCondition();
+
+            OnPuped?.Invoke();
         }
     }
 

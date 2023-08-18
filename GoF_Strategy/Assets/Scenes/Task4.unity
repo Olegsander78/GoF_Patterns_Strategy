@@ -181,7 +181,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u0425\u043B\u043E\u043F\u043D\u0443\u0442\u044C \u0432\u0441\u0435 \u0448\u0430\u0440\u0438\u043A\u0438"
+  m_text: Pop all the balloons to win!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -208,7 +208,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 23
+  m_fontSize: 22.05
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -270,6 +270,8 @@ GameObject:
   - component: {fileID: 310381887}
   - component: {fileID: 310381886}
   - component: {fileID: 310381885}
+  - component: {fileID: 310381890}
+  - component: {fileID: 310381889}
   m_Layer: 5
   m_Name: UI
   m_TagString: Untagged
@@ -361,6 +363,38 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &310381889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 310381884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9574b150fd80c674799de0dd052bd32d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _conditionWinText: {fileID: 930279395}
+  _endGameText: {fileID: 1667578812}
+  _oneColorButtonText: {fileID: 1537435328}
+  _popAllButton: {fileID: 350992617}
+  _popOneColorButton: {fileID: 697701207}
+--- !u!114 &310381890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 310381884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4261ad35f44ece7469c205eb118d3f3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _eventsView: {fileID: 310381889}
+  _gameController: {fileID: 1438630475}
+  _endGametext: You win again!
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -1240,7 +1274,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab5373993eab0e8498df01848633c438, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _ballPrefab: {fileID: 3775663240098555076, guid: f79fc8556037a2d459ebe8639a9d02c8,
+  _ballPrefab: {fileID: 3775663240098555074, guid: f79fc8556037a2d459ebe8639a9d02c8,
     type: 3}
   _redBallsCount: 3
   _whiteBallsCount: 3
@@ -1259,11 +1293,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _ballSpawner: {fileID: 1438630474}
-  _popAllButton: {fileID: 350992615}
-  _popOneColorButton: {fileID: 697701205}
   _colorToPop: 2
-  _conditionWinText: {fileID: 930279395}
-  _winText: {fileID: 1667578812}
 --- !u!4 &1438630476
 Transform:
   m_ObjectHideFlags: 0

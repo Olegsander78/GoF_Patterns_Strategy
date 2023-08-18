@@ -1,10 +1,9 @@
 using System.Collections.Generic;
-using System.ComponentModel;
 using UnityEngine;
 
 public class BallSpawner : MonoBehaviour
 {
-    [SerializeField] private GameObject _ballPrefab;
+    [SerializeField] private Ball _ballPrefab;
     [SerializeField] private int _redBallsCount;
     [SerializeField] private int _whiteBallsCount;
     [SerializeField] private int _greenBallsCount;
@@ -18,43 +17,23 @@ public class BallSpawner : MonoBehaviour
     {
         for (int i = 0; i < _redBallsCount; i++)
         {
-            SpawnBall(Ball.ColorType.Red);
+            SpawnBall(ColorType.Red);
         }
         for (int i = 0; i < _whiteBallsCount; i++)
         {
-            SpawnBall(Ball.ColorType.White);
+            SpawnBall(ColorType.White);
         }
         for (int i = 0; i < _greenBallsCount; i++)
         {
-            SpawnBall(Ball.ColorType.Green);
+            SpawnBall(ColorType.Green);
         }
     }
 
-    private void SpawnBall(Ball.ColorType color)
+    private void SpawnBall(ColorType color)
     {
-        Vector3 position = new Vector3(Random.Range(-5f, 5f), Random.Range(-5f, 5f), 0f);
-        GameObject ballObject = Instantiate(_ballPrefab, position, Quaternion.identity, _parent);
-        Ball ball = ballObject.GetComponent<Ball>();
-        ball.SetColor(color);
-        _balls.Add(ball);
-    }
-
-    public void PopAllBalls()
-    {
-        foreach (Ball ball in _balls)
-        {
-            ball.Pop();
-        }
-    }
-
-    public void PopColorBalls(Ball.ColorType color)
-    {
-        foreach (Ball ball in _balls)
-        {
-            if (ball.ColorBall == color)
-            {
-                ball.Pop();
-            }
-        }
+        var position = new Vector3(Random.Range(-5f, 5f), Random.Range(-5f, 5f), 0f);
+        var ballObject = Instantiate(_ballPrefab, position, Quaternion.identity, _parent);
+        ballObject.SetColor(color);
+        _balls.Add(ballObject);
     }
 }

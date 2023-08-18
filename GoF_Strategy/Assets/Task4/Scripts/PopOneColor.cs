@@ -2,9 +2,9 @@ using System.Collections.Generic;
 
 public class PopOneColor : IWinCondition
 {
-    private Ball.ColorType _colorToPop;
+    private ColorType _colorToPop;
 
-    public PopOneColor(Ball.ColorType colorToPop)
+    public PopOneColor(ColorType colorToPop)
     {
         _colorToPop = colorToPop;
     }

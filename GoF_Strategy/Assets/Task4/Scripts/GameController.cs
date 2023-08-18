@@ -1,33 +1,27 @@
+using System;
 using TMPro;
 using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-    public Ball.ColorType ColorToPop { get => _colorToPop;}
+    public Action OnEndedGame;
+    public Action<string> OnSelectedCondition;
+    public ColorType ColorToPop { get => _colorToPop;}
 
     [SerializeField] private BallSpawner _ballSpawner;
-    [SerializeField] private GameObject _popAllButton;
-    [SerializeField] private GameObject _popOneColorButton;
-    [SerializeField] private Ball.ColorType _colorToPop;
-    [SerializeField] private TextMeshProUGUI _conditionWinText;
-    [SerializeField] private TextMeshProUGUI _winText;
+    [SerializeField] private ColorType _colorToPop;
 
     private bool _popAllButtonClicked = false;
     private bool _popOneColorButtonClicked = false;
 
-    private IWinCondition _winConditionStrategy;    
-
-    private void Start()
-    {
-        Init();
-    }
+    private IWinCondition _winConditionStrategy;  
 
     public void SelectPopAllStrategy()
     {
         _winConditionStrategy = new PopAll();
 
-        DisableButtons();
-        _conditionWinText.text = $"Что бы выиграть хлопни все шарики!";
+        OnSelectedCondition?.Invoke($"Pop all the balloons to win!");
+
         _popAllButtonClicked = true;
         CheckButtonState();
     }
@@ -36,8 +30,8 @@ public class GameController : MonoBehaviour
     {
         _winConditionStrategy = new PopOneColor(_colorToPop);
 
-        DisableButtons();        
-        _conditionWinText.text = $"Что бы выиграть хлопни все шарики цвета - {_colorToPop}!";
+        OnSelectedCondition?.Invoke($"To win, pop all the balls of color - {_colorToPop}");
+
         _popOneColorButtonClicked = true;
         CheckButtonState();
     }
@@ -45,31 +39,27 @@ public class GameController : MonoBehaviour
     public void CheckWinCondition()
     {
         if (_winConditionStrategy.HasWon(_ballSpawner.Balls))
-        {
-            _winText.gameObject.SetActive(true);
-            //Debug.Log("You win!");
-        }
-    }
-
-    private void Init()
-    {
-        _popOneColorButton.GetComponentInChildren<TextMeshProUGUI>().text = $"Хлопнуть все шарики цвета - {_colorToPop}";
-        _conditionWinText.gameObject.SetActive(false);
-        _winText.gameObject.SetActive(false);
-    }
+            OnEndedGame?.Invoke();
+    }    
 
     private void CheckButtonState()
     {
         if (_popAllButtonClicked || _popOneColorButtonClicked)
         {
             _ballSpawner.SpawnBalls();
-        }
-    }
 
-    private void DisableButtons()
+            foreach (var ball in _ballSpawner.Balls)
+            {
+                ball.OnPuped += CheckWinCondition;
+            }
+        }
+    }    
+
+    private void OnDisable()
     {
-        _popAllButton.SetActive(false);
-        _popOneColorButton.SetActive(false);
-        _conditionWinText.gameObject.SetActive(true);
+        foreach (var ball in _ballSpawner.Balls)
+        {
+            ball.OnPuped -= CheckWinCondition;
+        }
     }
 }
