@@ -1,4 +1,4 @@
-interface ITradeBehavior
+public interface ITradeBehavior
 {
     void Trade();
 }
