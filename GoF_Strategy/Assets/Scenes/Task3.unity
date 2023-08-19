@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -635,6 +635,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1439926438}
+  - component: {fileID: 1439926439}
   - component: {fileID: 1439926437}
   m_Layer: 0
   m_Name: GAME_SYSTEM
@@ -670,6 +671,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1439926439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1439926436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd4556b983d862a4bbc0c8546dbff020, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1468075496
 GameObject:
   m_ObjectHideFlags: 0
@@ -898,7 +911,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d95b962d875626944aaf62d07558d9af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _tradeController: {fileID: 1439926437}
+  _tradeHandler: {fileID: 1439926437}
 --- !u!135 &1683800687
 SphereCollider:
   m_ObjectHideFlags: 0

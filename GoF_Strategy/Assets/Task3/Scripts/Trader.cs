@@ -18,8 +18,8 @@ public class Trader : MonoBehaviour
 
     private void DoTrade()
     {
-        //var currentDayOfWeek = _tradeHandler.GetBehaviorByDay();
-        //ITradeBehavior currentBehavior =  _tradeHandler.TradeBehaviors[currentDayOfWeek];
-        //currentBehavior.Trade();
+        var currentDayOfWeek = _tradeHandler.GetCurrentDay();
+        ITradeBehavior currentBehavior = _tradeHandler.TradeBehaviors[currentDayOfWeek];
+        currentBehavior.Trade();
     }    
 }

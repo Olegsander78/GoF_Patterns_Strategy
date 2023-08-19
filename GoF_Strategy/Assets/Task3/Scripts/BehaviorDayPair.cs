@@ -6,5 +6,6 @@ public class BehaviorDayPair
 {
     public DaysOfWeek DayOfWeek;
 
-    [SerializeReference] ITradeBehavior Behavior;
+    //[SerializeReference] ITradeBehavior Behavior;
+    [field:SerializeField] public object Behavior;
 }

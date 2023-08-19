@@ -14,16 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _behaviorDayPairs:
   - DayOfWeek: 0
-    Behavior:
-      rid: -2
   - DayOfWeek: 1
-    Behavior:
-      rid: -2
   - DayOfWeek: 2
-    Behavior:
-      rid: -2
-  references:
-    version: 2
-    RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
+  - DayOfWeek: 3
+  - DayOfWeek: 4
+  - DayOfWeek: 5
+  - DayOfWeek: 6
