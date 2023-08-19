@@ -8,7 +8,7 @@ public class Shooter : MonoBehaviour
 
     private void Start()
     {
-        _currentWeapon = new Pistol(10, 1);
+        _currentWeapon = new Pistol(10);
     }
 
     private void Update()
@@ -21,7 +21,7 @@ public class Shooter : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.R))
         {
-            _currentWeapon.Reload();
+            _currentWeapon.PerformReload(_currentWeapon.FullAmmo);
         }
     }
 }

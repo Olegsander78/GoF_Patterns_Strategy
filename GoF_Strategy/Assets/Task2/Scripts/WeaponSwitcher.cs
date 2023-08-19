@@ -8,7 +8,7 @@ public class WeaponSwitcher : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            _shooter.CurrentWeapon = new Pistol(10, 1);
+            _shooter.CurrentWeapon = new Pistol(10);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
@@ -16,7 +16,7 @@ public class WeaponSwitcher : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-            _shooter.CurrentWeapon = new Shootgun(12, 3);
+            _shooter.CurrentWeapon = new Shootgun(12);
         }
     }
 }

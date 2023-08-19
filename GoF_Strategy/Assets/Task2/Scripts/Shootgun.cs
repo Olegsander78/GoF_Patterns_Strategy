@@ -5,7 +5,7 @@ public class Shootgun : Weapon
     private const int AMMO_CAPACITY_SHOOTGUN = 12;
     private const int AMMO_PERSHOOT_SHOOTGUN = 3;
 
-    public Shootgun(int ammo, int ammoPerShoot) : base(ammo, ammoPerShoot)
+    public Shootgun(int ammo) : base(fullAmmo:AMMO_CAPACITY_SHOOTGUN, ammo, ammoPerShoot:AMMO_PERSHOOT_SHOOTGUN, reloadBehavior: new ReloadingBehaviour())
     {
     }
 
@@ -17,12 +17,6 @@ public class Shootgun : Weapon
             return;
         }
         Ammo -= AMMO_PERSHOOT_SHOOTGUN;
-        Debug.Log("Shootgun: Shooting 3 bullets in a row");
-    }
-
-    public override void Reload()
-    {
-        Ammo = AMMO_CAPACITY_SHOOTGUN;
-        Debug.Log("Shootgun: Reloading");
+        Debug.Log($"Shootgun: Shooting {AMMO_PERSHOOT_SHOOTGUN} bullets in a row");
     }
 }
