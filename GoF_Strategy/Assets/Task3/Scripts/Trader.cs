@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Trader : MonoBehaviour
 {
+    [SerializeField] private TradeDayController _tradeDayController;
     [SerializeField] private TradeHandler _tradeHandler;
 
     private void OnTriggerEnter(Collider other)
@@ -17,9 +18,8 @@ public class Trader : MonoBehaviour
     }
 
     private void DoTrade()
-    {
-        var currentDayOfWeek = _tradeHandler.GetCurrentDay();
-        ITradeBehavior currentBehavior = _tradeHandler.TradeBehaviors[currentDayOfWeek];
+    {           
+        ITradeBehavior currentBehavior = _tradeHandler.GetTradeBehavior(_tradeDayController.CurrentDayOfWeek);
         currentBehavior.Trade();
     }    
 }

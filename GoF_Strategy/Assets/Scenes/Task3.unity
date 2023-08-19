@@ -911,6 +911,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d95b962d875626944aaf62d07558d9af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _tradeDayController: {fileID: 1439926439}
   _tradeHandler: {fileID: 1439926437}
 --- !u!135 &1683800687
 SphereCollider:

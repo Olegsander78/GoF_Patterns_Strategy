@@ -2,24 +2,18 @@ using UnityEngine;
 
 public class TradeDayController : MonoBehaviour
 {
-    //private TradeController _tradeController;
+    public DaysOfWeek CurrentDayOfWeek { get => _currentDayOfWeek; }
+
     private DaysOfWeek _currentDayOfWeek;
 
-    private void Start()
+    private void Awake()
     {
-        //_tradeController = GetComponent<TradeController>();
         InitTradeDay();
     }
 
     public void InitTradeDay()
-    {
-        _currentDayOfWeek = (DaysOfWeek)Random.Range(0, 7);
-
+    {       
+        _currentDayOfWeek = (DaysOfWeek)Random.Range(0, 6);
         Debug.Log($"<color=magenta>Today is {_currentDayOfWeek}</color>");
-    }
-
-    public DaysOfWeek GetCurrentDay()
-    {
-        return _currentDayOfWeek;
     }
 }
