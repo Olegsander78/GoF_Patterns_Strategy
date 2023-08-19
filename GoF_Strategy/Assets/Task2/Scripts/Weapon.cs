@@ -1,7 +1,7 @@
 public abstract class Weapon
 {
-    public int Ammo { get; protected set; }
-    public int FullAmmo { get; protected set; }
+    public int AmmoCurrent { get; protected set; }
+    public int AmmoCapacity { get; protected set; }
     protected int AmmoPerShoot;
 
     protected IReloadBehavior _reloadBehavior;
@@ -9,11 +9,12 @@ public abstract class Weapon
     protected Weapon()
     {
     }
-    protected Weapon(int fullAmmo, int ammo, int ammoPerShoot, IReloadBehavior reloadBehavior)
+    protected Weapon(int ammoCapacity, int ammoCurrent, int ammoPerShoot, IReloadBehavior reloadBehavior)
     {
-        FullAmmo = fullAmmo;
-        Ammo = ammo;
+        AmmoCapacity = ammoCapacity;
+        AmmoCurrent = ammoCurrent;
         AmmoPerShoot = ammoPerShoot;
+
         _reloadBehavior = reloadBehavior;
     }
     public abstract void Shoot();
@@ -22,9 +23,9 @@ public abstract class Weapon
     {
         _reloadBehavior = reloadBehavior;
     }
-    public void PerformReload(int ammo)
+    public void PerformReload()
     {
-        Ammo = _reloadBehavior.Reload(ammo);
+        AmmoCurrent = _reloadBehavior.Reload(AmmoCapacity);
     }    
 
 }

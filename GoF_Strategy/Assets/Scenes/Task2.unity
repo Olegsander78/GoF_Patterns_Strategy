@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -399,10 +399,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 801155914}
-  - component: {fileID: 801155916}
-  - component: {fileID: 801155915}
+  - component: {fileID: 801155917}
   m_Layer: 0
-  m_Name: WeaponController
+  m_Name: WeaponSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -423,7 +422,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &801155915
+--- !u!114 &801155917
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -432,22 +431,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 801155913}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 28a778d9a6765ce4ab96cc7be65e9c8b, type: 3}
+  m_Script: {fileID: 11500000, guid: cb773b72f4d9b054f94b83c45cc98832, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &801155916
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 801155913}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d25bbe156943184cac95653e5e5099b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _shooter: {fileID: 801155915}
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
