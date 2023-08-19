@@ -29,4 +29,5 @@ public class GameEventsAdapter : MonoBehaviour
         _gameController.OnEndedGame -= OnShowEndGameText;
         _gameController.OnSelectedCondition -= OnShowConditionWinText;
     }
+
 }
