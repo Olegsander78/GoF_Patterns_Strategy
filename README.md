@@ -1,4 +1,4 @@
-# GoF Patterns
+# GoF Patterns Strategy & Template method
  Примеры использования паттернов стратегия и шаблонный метод.
 
 ### Стратегия
