@@ -1,4 +1,4 @@
-# GoF Patterns Strategy & Template method
+# GoF Patterns Strategy & Template method in Unity
  Примеры использования паттернов стратегия и шаблонный метод.
 
 ### Стратегия
